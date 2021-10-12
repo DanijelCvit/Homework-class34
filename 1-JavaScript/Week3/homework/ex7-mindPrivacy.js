@@ -1,7 +1,5 @@
 'use strict';
 /*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week3#exercise-7-mind-the-privacy
-
 1. Complete the `filterPrivateData()` function. It should take a single 
    parameter: the array of employee records.
 2. It should create a _new_ array, containing employee data without the private
@@ -30,8 +28,14 @@ const employeeRecords = [
 ];
 
 // ! Function under test
-function filterPrivateData(/* parameter(s) go here */) {
+function filterPrivateData(records) {
   // TODO complete this function
+  const newRecords = [];
+  for (const employee of records) {
+    const { name, occupation, email } = employee;
+    newRecords.push({ name, occupation, email });
+  }
+  return newRecords;
 }
 
 // ! Test functions (plain vanilla JavaScript)

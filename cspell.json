@@ -8,6 +8,7 @@
         "Celcius",
         "clonedeep",
         "Cryptr",
+        "danijel",
         "endregion",
         "eqeqeq",
         "Grammatic",
@@ -29,10 +30,12 @@
         "testalt",
         "testx",
         "thruthy",
-        "Todos",
         "Traversy",
         "typeof",
         "usingapis",
         "Woww"
+    ],
+    "ignoreWords": [
+        "Xdpd"
     ]
 }

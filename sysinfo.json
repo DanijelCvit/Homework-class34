@@ -1,0 +1,95 @@
+{
+  "node": "v14.17.4",
+  "system": {
+    "manufacturer": "Apple Inc.",
+    "model": "iMac15,1"
+  },
+  "cpu": {
+    "manufacturer": "Intel®",
+    "brand": "Core™ i5-4690",
+    "speed": 3.5
+  },
+  "memory": "24 GB",
+  "osInfo": {
+    "platform": "darwin",
+    "distro": "macOS",
+    "release": "11.5.2"
+  },
+  "vscodeInfo": {
+    "version": "1.61.0",
+    "extensions": [
+      "aaron-bond.better-comments",
+      "ahmadawais.shades-of-purple",
+      "akamud.vscode-theme-onedark",
+      "azemoh.one-monokai",
+      "batisteo.vscode-django",
+      "bierner.github-markdown-preview",
+      "bierner.markdown-checkbox",
+      "bierner.markdown-emoji",
+      "bierner.markdown-preview-github-styles",
+      "bierner.markdown-yaml-preamble",
+      "CADENAS.vscode-glsllint",
+      "circledev.glsl-canvas",
+      "CoenraadS.bracket-pair-colorizer",
+      "CoenraadS.bracket-pair-colorizer-2",
+      "DavidAnson.vscode-markdownlint",
+      "dbaeumer.vscode-eslint",
+      "deerawan.vscode-faker",
+      "donjayamanne.python-extension-pack",
+      "dracula-theme.theme-dracula",
+      "eamodio.gitlens",
+      "esbenp.prettier-vscode",
+      "evgeniypeshkov.syntax-highlighter",
+      "GitHub.github-vscode-theme",
+      "hoovercj.haskell-linter",
+      "justusadam.language-haskell",
+      "magicstack.MagicPython",
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-toolsai.jupyter",
+      "ms-toolsai.jupyter-keymap",
+      "ms-toolsai.jupyter-renderers",
+      "ritwickdey.LiveServer",
+      "sdras.night-owl",
+      "slevesque.shader",
+      "streetsidesoftware.code-spell-checker",
+      "techer.open-in-browser",
+      "Tyriar.lorem-ipsum",
+      "VisualStudioExptTeam.vscodeintellicode",
+      "WallabyJs.quokka-vscode",
+      "whizkydee.material-palenight-theme",
+      "wholroyd.jinja",
+      "zhuangtongfa.material-theme"
+    ],
+    "userSettings": {
+      "editor.formatOnSave": true,
+      "open-in-browser.default": "chrome",
+      "files.autoSave": "onFocusChange",
+      "editor.fontSize": 13,
+      "liveServer.settings.donotVerifyTags": true,
+      "liveServer.settings.donotShowInfoMsg": true,
+      "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "glsllint.glslifyOptions": {},
+      "glsllint.glslangValidatorPath": "/Users/dc/Desktop/webgl-demo/glslang-master-osx-Release/bin/glslangValidator",
+      "liveServer.settings.CustomBrowser": "chrome",
+      "cSpell.userWords": [
+        "danijel"
+      ],
+      "terminal.explorerKind": "external",
+      "terminal.external.osxExec": "iTerm.app",
+      "editor.fontFamily": "Fira Code, Menlo for Powerline",
+      "terminal.integrated.fontFamily": "MesloLGS NF",
+      "terminal.integrated.lineHeight": 1.3,
+      "workbench.iconTheme": "Monokai Pro Icons",
+      "haskell.hlint.executablePath": "/Users/dc/.local/bin/hlint",
+      "editor.suggestSelection": "first",
+      "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+      "files.associations": {
+        "*.html": "html"
+      }
+    }
+  }
+}

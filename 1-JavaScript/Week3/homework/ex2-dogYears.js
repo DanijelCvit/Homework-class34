@@ -1,7 +1,5 @@
 'use strict';
 /*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week3#exercise-2-dog-years
-
 You know how old your dog is in human years, but what about dog years? Let's
 calculate it!
 
@@ -16,8 +14,9 @@ calculate it!
    ages.
 -----------------------------------------------------------------------------*/
 
-function calculateDogAge(/* parameters go here */) {
+function calculateDogAge(number) {
   // TODO complete this function
+  return `Your doggie is ${number * 7} years old in dog years!`;
 }
 
 console.log(calculateDogAge(1)); // -> "Your doggie is 7 years old in dog years!"

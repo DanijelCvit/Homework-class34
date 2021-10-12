@@ -1,0 +1,19 @@
+2021-10-13 12:13:56 info: ----------------------------------------------
+2021-10-13 12:13:56 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-10-13 12:13:56 info: ----------------------------------------------
+2021-10-13 12:13:59 info: All unit tests passed.
+2021-10-13 12:14:01 error: *** Spell Checker Report ***
+
+ex1-giveCompliment.js:41:17 - Unknown word (Danijel)
+
+2021-10-13 12:14:05 info: Disclaimer turned off
+2021-10-13 12:15:31 info: ----------------------------------------------
+2021-10-13 12:15:31 info: >>> Running Unit Test `ex1-giveCompliment` <<<
+2021-10-13 12:15:31 info: ----------------------------------------------
+2021-10-13 12:15:34 info: All unit tests passed.
+2021-10-13 12:15:36 info: All steps were completed successfully
+2021-10-13 12:15:50 info: ----------------------------------------
+2021-10-13 12:15:50 info: >>> Running Unit Test `ex2-dogYears` <<<
+2021-10-13 12:15:50 info: ----------------------------------------
+2021-10-13 12:15:52 info: All unit tests passed.
+2021-10-13 12:15:54 info: All steps were completed successfully

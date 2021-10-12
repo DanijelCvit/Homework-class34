@@ -1,17 +1,14 @@
 /* eslint-disable hyf/camelcase */
 'use strict';
 const walk = require('acorn-walk');
-const {
-  beforeAllHelper,
-  checkTodos,
-} = require('../../../test-runner/unit-test-helpers');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
 describe('tellFortune', () => {
-  let exported, rootNode, source, tellFortune;
+  let exported, rootNode, tellFortune;
   const state = {};
 
   beforeAll(() => {
-    ({ exported, rootNode, source } = beforeAllHelper(__filename, {
+    ({ exported, rootNode } = beforeAllHelper(__filename, {
       parse: true,
     }));
 
@@ -50,15 +47,13 @@ describe('tellFortune', () => {
     expect(exported).toBeDefined();
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
-
   test('should take four parameters', () => {
-    expect(exported).toBeDefined();
+    if (!exported) return;
     expect(tellFortune).toHaveLength(4);
   });
 
   test('should call function `selectRandomly` for each of its arguments', () => {
-    expect(exported).toBeDefined();
+    if (!exported) return;
     expect(state.selectRandomlyArgs).toBeDefined();
     expect(state.selectRandomlyArgs).toEqual(
       expect.arrayContaining(state.tellFortuneParams)
@@ -66,7 +61,7 @@ describe('tellFortune', () => {
   });
 
   test('should tell the fortune by randomly selecting array values', () => {
-    expect(exported).toBeDefined();
+    if (!exported) return;
     const { numKids, partnerNames, locations, jobTitles } = state;
 
     const arraysOkay =

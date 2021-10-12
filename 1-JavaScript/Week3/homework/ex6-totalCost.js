@@ -1,7 +1,5 @@
 'use strict';
 /*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week3#exercise-6-total-cost-is
-
 You want to buy a couple of things from the supermarket to prepare for a party.
 After scanning all the items the cashier wants to give you the total price, but
 the machine is broken! Let's write her a function that does it for her
@@ -22,20 +20,37 @@ instead!
 -----------------------------------------------------------------------------*/
 const cartForParty = {
   // TODO complete this object
+  beer: 3.99,
+  chips: 2.95,
+  dip: 1.2,
+  cookies: 0.99,
+  banana: 0.79,
 };
 
-function calculateTotalPrice(/* TODO parameter(s) go here */) {
+function calculateTotalPrice(cart) {
   // TODO replace this comment with your code
+  let total = 0;
+  //Get array of all keys from cart object to iterate over
+  const cartArray = Object.keys(cart);
+
+  for (const item of cartArray) {
+    total += cart[item];
+  }
+  return `Total: €${total.toFixed(2)}`;
 }
 
 function test1() {
   console.log('\nTest 1: calculateTotalPrice should take one parameter');
   // TODO replace this comment with your code
+  const parameter = 1;
+  console.assert(parameter === calculateTotalPrice.length);
 }
 
 function test2() {
   console.log('\nTest 2: return correct output when passed cartForParty');
   // TODO replace this comment with your code
+  const output = `Total: €9.92`;
+  console.assert(output === calculateTotalPrice(cartForParty));
 }
 
 function test() {

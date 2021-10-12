@@ -1,7 +1,5 @@
 'use strict';
 /*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/1-JavaScript/Week3#exercise-3-be-your-own-fortune-teller
-
 Why pay a fortune teller when you can just program your fortune yourself?
 
 1. Create four arrays, `numKids`, `partnerNames`, `locations` and `jobTitles`. 
@@ -32,28 +30,50 @@ body, this code is now written once only in a separated function.
 -----------------------------------------------------------------------------*/
 const numKids = [
   // TODO add elements here
+  0, 1, 2, 3, 4,
 ];
 
 const partnerNames = [
   // TODO add elements here
+  'Kim',
+  'Jane',
+  'Anna',
+  'Merry',
+  'Beth',
 ];
 
 const locations = [
   // TODO add elements here
+  'Amsterdam',
+  'New York',
+  'California',
+  'Paris',
+  'Lisbon',
 ];
 
 const jobTitles = [
   // TODO add elements here
+  'Software Developer',
+  'Game Designer',
+  'Web Developer',
+  'Concept Artist',
+  'Janitor',
 ];
 
 // This function should take an array as its parameter and return
 // a randomly selected element as its return value.
-function selectRandomly(/* TODO parameter(s) go here */) {
+function selectRandomly(array) {
   // TODO complete this function
+  return array[Math.floor(Math.random() * array.length)];
 }
 
-function tellFortune(/* add parameter(s) here */) {
+function tellFortune(numKids, partnerNames, locations, jobTitles) {
   // TODO complete this function
+  return `You will be a ${selectRandomly(jobTitles)} in ${selectRandomly(
+    locations
+  )}, married to ${selectRandomly(partnerNames)} with ${selectRandomly(
+    numKids
+  )} kids.`;
 }
 
 console.log(tellFortune(numKids, partnerNames, locations, jobTitles));
