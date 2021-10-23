@@ -17,3 +17,28 @@ ex1-giveCompliment.js:41:17 - Unknown word (Danijel)
 2021-10-13 12:15:50 info: ----------------------------------------
 2021-10-13 12:15:52 info: All unit tests passed.
 2021-10-13 12:15:54 info: All steps were completed successfully
+2021-10-24 12:30:35 info: ------------------------------------------------------
+2021-10-24 12:30:35 info: >>> Running Unit Test `ex1-doubleEvenNumbers.test` <<<
+2021-10-24 12:30:35 info: ------------------------------------------------------
+2021-10-24 12:30:39 info: All unit tests passed.
+2021-10-24 12:30:42 info: All steps were completed successfully
+2021-10-24 12:31:01 info: -------------------------------------------------
+2021-10-24 12:31:01 info: >>> Running Unit Test `ex2-mondaysWorth.test` <<<
+2021-10-24 12:31:01 info: -------------------------------------------------
+2021-10-24 12:31:05 info: All unit tests passed.
+2021-10-24 12:31:08 info: All steps were completed successfully
+2021-10-24 12:31:20 info: -------------------------------------------------
+2021-10-24 12:31:20 info: >>> Running Unit Test `ex3-lemonAllergy.test` <<<
+2021-10-24 12:31:20 info: -------------------------------------------------
+2021-10-24 12:31:23 info: All unit tests passed.
+2021-10-24 12:31:26 info: All steps were completed successfully
+2021-10-24 12:31:34 info: ------------------------------------------
+2021-10-24 12:31:34 info: >>> Running Unit Test `ex4-observable` <<<
+2021-10-24 12:31:34 info: ------------------------------------------
+2021-10-24 12:31:36 info: All unit tests passed.
+2021-10-24 12:31:39 info: All steps were completed successfully
+2021-10-24 12:31:48 info: --------------------------------------
+2021-10-24 12:31:48 info: >>> Running Unit Test `ex5-wallet` <<<
+2021-10-24 12:31:48 info: --------------------------------------
+2021-10-24 12:31:51 info: All unit tests passed.
+2021-10-24 12:31:53 info: All steps were completed successfully
