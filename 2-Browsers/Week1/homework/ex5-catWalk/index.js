@@ -1,7 +1,5 @@
 'use strict';
 /*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Browsers/Week1#exercise-5-the-cat-walk
-
 1. Create a variable to store a reference to the `<img>` element.
 2. Change the style of the `<img>` to have a `left` of `0px`, so that it starts 
    at the left hand of the screen.
@@ -23,6 +21,36 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
 -----------------------------------------------------------------------------*/
 function catWalk() {
   // TODO complete this function
+  const imgElement = document.querySelector('img');
+  const dancingCat =
+    'https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif';
+  const walkingCat = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
+  imgElement.style.left = '0';
+
+  setTimeout(function walk() {
+    const endOFRoad =
+      imgElement.getBoundingClientRect().right >=
+      document.documentElement.clientWidth;
+    const halfWay =
+      imgElement.getBoundingClientRect().right -
+      document.documentElement.clientWidth / 2 -
+      imgElement.width / 2;
+
+    if (imgElement.src === dancingCat) {
+      imgElement.src = walkingCat;
+    }
+    if (halfWay >= 0 && halfWay < 10) {
+      imgElement.src = dancingCat; // New image is 24px wider, increasing halfWay > 10.
+      setTimeout(walk, 5000);
+    } else {
+      imgElement.style.left = parseInt(imgElement.style.left) + 10 + 'px';
+      setTimeout(walk, 50);
+    }
+    if (endOFRoad) {
+      imgElement.style.left = '0';
+    }
+  }, 50);
 }
 
 // TODO execute `catWalk` when the browser has completed loading the page
+window.onload = catWalk;

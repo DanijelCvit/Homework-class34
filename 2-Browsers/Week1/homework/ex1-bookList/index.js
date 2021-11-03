@@ -1,20 +1,21 @@
 //cspell: disable
-/*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Browsers/Week1#exercise-1-the-book-list
+/*
+  
+ ** Exercise 1: The book list **
 
-I'd like to display my three favorite books inside a nice webpage!
+  I'd like to display my three favorite books inside a nice webpage!
 
-1. Iterate through the array of books.
-2. For each book, create a `<p>`
-element with the book title and author.
-3. Use a `<ul>`  and `<li>` to display the books.
-4. Add an `<img>` to each book that links to a URL of the book cover.
-5. Change the style of the book depending on whether you have read it(green) or not(red).
+  1. Iterate through the array of books.
+  2. For each book, create a `<p>`
+  element with the book title and author.
+  3. Use a `<ul>`  and `<li>` to display the books.
+  4. Add an `<img>` to each book that links to a URL of the book cover.
+  5. Change the style of the book depending on whether you have read it(green) or not(red).
 
-The end result should look something like this:
-https: //hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
+  The end result should look something like this:
+  https: //hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 
------------------------------------------------------------------------------*/
+*/
 //cspell: enable
 
 const myBooks = [
@@ -40,6 +41,40 @@ const myBooks = [
 
 function createBookList(books) {
   // TODO your code goes in here, return the ul element
+  const ulElement = document.createElement('ul');
+
+  for (const book of books) {
+    const liElement = document.createElement('li');
+    const pElement = document.createElement('p');
+    const imgElement = document.createElement('img');
+    const imgName = book.title.replace(/\s/g, '_');
+
+    pElement.textContent = `${book.title} - ${book.author}`;
+    imgElement.src = `./assets/${imgName}.jpg`;
+    imgElement.alt = '';
+
+    if (book.alreadyRead) {
+      liElement.style.background = 'green';
+    } else {
+      liElement.style.background = 'red';
+    }
+
+    //Styling li
+    imgElement.style.maxWidth = '200px';
+    liElement.style.textAlign = 'center';
+    liElement.style.margin = '0 1rem 1rem 0';
+    liElement.style.width = '300px';
+
+    liElement.appendChild(pElement);
+    liElement.appendChild(imgElement);
+    ulElement.appendChild(liElement);
+  }
+  //Styling ul
+  ulElement.style.listStyle = 'none';
+  ulElement.style.display = 'flex';
+  ulElement.style.flexWrap = 'wrap';
+
+  return ulElement;
 }
 
 const ulElement = createBookList(myBooks);

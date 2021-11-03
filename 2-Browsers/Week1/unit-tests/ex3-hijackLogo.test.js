@@ -1,16 +1,13 @@
 /* eslint-disable hyf/camelcase */
 const walk = require('acorn-walk');
-const {
-  beforeAllHelper,
-  checkTodos,
-} = require('../../../test-runner/unit-test-helpers');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
 describe('hijackLogo', () => {
-  let rootNode, source;
+  let rootNode;
   const state = {};
 
   beforeAll(() => {
-    ({ rootNode, source } = beforeAllHelper(__filename, {
+    ({ rootNode } = beforeAllHelper(__filename, {
       noRequire: true,
       parse: true,
     }));
@@ -24,8 +21,6 @@ describe('hijackLogo', () => {
         },
       });
   });
-
-  test('should have all TODO comments removed', () => checkTodos(source));
 
   test('should set the `src` property', () => {
     expect(state.src).toBeDefined();

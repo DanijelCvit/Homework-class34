@@ -4,11 +4,10 @@ const { prepare, validateHTML } = require('../../../test-runner/jsdom-helpers');
 const {
   beforeAllHelper,
   onloadValidator,
-  checkTodos,
 } = require('../../../test-runner/unit-test-helpers');
 
 describe('whatsTheTime', () => {
-  let rootNode, source;
+  let rootNode;
   const state = {};
   let setIntervalSpy;
 
@@ -18,7 +17,7 @@ describe('whatsTheTime', () => {
     setIntervalSpy = jest.spyOn(window, 'setInterval');
 
     state.outerHTML = window.document.documentElement.outerHTML;
-    ({ rootNode, source } = beforeAllHelper(__filename, {
+    ({ rootNode } = beforeAllHelper(__filename, {
       noRequire: true,
       parse: true,
     }));
@@ -40,8 +39,6 @@ describe('whatsTheTime', () => {
 
   test('HTML should be syntactically valid', () =>
     validateHTML(state.outerHTML));
-
-  test('should have all TODO comments removed', () => checkTodos(source));
 
   test('should use `setInterval()`', () => {
     expect(state.setInterval).toBeDefined();
