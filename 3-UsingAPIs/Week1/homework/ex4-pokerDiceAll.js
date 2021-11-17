@@ -1,10 +1,7 @@
 /*------------------------------------------------------------------------------
-Full description at: https://github.com/HackYourFuture/Homework/tree/main/3-UsingAPIs/Week1#exercise-4-throw-the-dices-for-a-poker-dice-game
-
 For this exercise you should do the following:
-  - Refactor the `rollTheDices()` function to throw five dices in one go, by 
-    using `.map()` on the `dices` array to create an array of promises for use 
-    with `Promise.all()`.
+  - Refactor the rollTheDices() function to throw five dices in one go, making 
+    use of the dices array and Promise.all().
   - A successful (i.e. resolved) throw should output a message similar to: 
       Resolved! [ 'JACK', 'QUEEN', 'QUEEN', 'NINE', 'JACK' ]
   - An unsuccessful (i.e. rejected) throw should output a message similar to:
@@ -29,7 +26,9 @@ const rollDice = require('../../helpers/pokerDiceRoller');
 function rollTheDices() {
   // TODO Refactor this function
   const dices = [1, 2, 3, 4, 5];
-  return rollDice(1);
+  const promises = dices.map((dice) => rollDice(dice));
+
+  return Promise.all(promises);
 }
 
 rollTheDices()
@@ -38,3 +37,8 @@ rollTheDices()
 
 // ! Do not change or remove the code below
 module.exports = rollTheDices;
+
+/* Explanation:
+All dices return promises which will settle independently (async) of each other. If one of the promises settles on rejected, it will trigger/call the reject
+function of the promise returned by Promise.all(), meanwhile other promises will continue until settled. Each subsequent promise that will trigger an reject()
+is ignored since Promise.all() has settled and resolve() will never be called since at least one of the promises has failed.  */

@@ -1,13 +1,10 @@
-const {
-  beforeAllHelper,
-  checkTodos,
-} = require('../../../test-runner/unit-test-helpers');
+const { beforeAllHelper } = require('../../../test-runner/unit-test-helpers');
 
 describe('ex5-pokerDiceChain', () => {
-  let exported, source, rollTheDices;
+  let exported, rollTheDices;
 
   beforeAll(() => {
-    ({ exported, source } = beforeAllHelper(__filename)),
+    ({ exported } = beforeAllHelper(__filename)),
       { nukeTimers: true, zeroRandom: true };
     rollTheDices = exported;
   });
@@ -16,11 +13,9 @@ describe('ex5-pokerDiceChain', () => {
     expect(exported).toBeDefined();
   });
 
-  test('should have all TODO comments removed', () => checkTodos(source));
-
-  test('should resolve when all dices settle successfully', async () => {
-    expect.assertions(4);
-    expect(exported).toBeDefined();
+  test('should resolve when all dices settle successfully', () => {
+    if (!exported) return;
+    expect.assertions(2);
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
@@ -30,20 +25,20 @@ describe('ex5-pokerDiceChain', () => {
 
     const promise = rollTheDices();
     expect(promise).toBeInstanceOf(Promise);
-    const result = await promise;
-    expect(Array.isArray(result)).toBe(true);
-    expect(result).toHaveLength(5);
+    const assertionPromise = expect(promise).resolves.toBeDefined();
 
     promise.finally(() => {
       setTimeoutSpy.mockRestore();
       randomSpy.mockRestore();
       logSpy.mockRestore();
     });
+
+    return assertionPromise;
   });
 
   test('should reject with an Error when a dice rolls off the table', async () => {
-    expect.assertions(3);
-    expect(exported).toBeDefined();
+    if (!exported) return;
+    expect.assertions(2);
 
     const logSpy = jest.spyOn(console, 'log').mockImplementation();
     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);
