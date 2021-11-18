@@ -22,18 +22,67 @@ Use async/await and try/catch to handle promises.
 Try and avoid using global variables. As much as possible, try and use function 
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
-function fetchData(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw 'HTTP ERROR';
+    }
+  } catch (error) {
+    console.log(error);
+  }
 }
 
-function fetchAndPopulatePokemons(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchAndPopulatePokemons(pokemonGeneration) {
+  const url = `https://pokeapi.co/api/v2/generation/${pokemonGeneration}/`;
+  const defaultSelect = document.createElement('option');
+  const pokemonSelect = document.getElementById('pokemon');
+
+  defaultSelect.value = '';
+  defaultSelect.textContent = '--Pease choose an option--';
+
+  pokemonSelect.append(defaultSelect);
+
+  const data = await fetchData(url);
+  const pokemonList = data.pokemon_species.map((pokemon) => {
+    const optionElement = document.createElement('option');
+    optionElement.value = pokemon.name;
+    optionElement.textContent = pokemon.name;
+    return optionElement;
+  });
+  pokemonSelect.append(...pokemonList);
 }
 
-function fetchImage(/* TODO parameter(s) go here */) {
-  // TODO complete this function
+async function fetchImage(pokemonName) {
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+
+  const data = await fetchData(url);
+  const image = data.sprites.front_default;
+  const imageElement = document.getElementById('pokemon-sprite');
+  imageElement.src = image;
 }
 
 function main() {
-  // TODO complete this function
+  //Load list with pokemon when clicked
+  const getPokemonButton = document.getElementById('getPokemon');
+  getPokemonButton.onclick = () => {
+    const pokemonGeneration = 1;
+
+    if (pokemonGeneration) {
+      fetchAndPopulatePokemons(pokemonGeneration);
+    }
+  };
+
+  const pokemonSelect = document.getElementById('pokemon');
+  pokemonSelect.onchange = () => {
+    const pokemonName = pokemonSelect.value;
+
+    if (pokemonName) {
+      fetchImage(pokemonName);
+    }
+  };
 }
+
+window.addEventListener('load', main);

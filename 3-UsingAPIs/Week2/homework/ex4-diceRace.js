@@ -15,17 +15,29 @@ const rollDice = require('../../helpers/pokerDiceRoller');
 
 function rollTheDices() {
   const dices = [1, 2, 3, 4, 5];
-  // TODO complete this function; use Promise.race() and rollDice()
+
+  const promises = dices.map((dice) => rollDice(dice));
+
+  return Promise.race(promises);
 }
 
 // Refactor this function to use async/await and try/catch
-function main() {
-  rollTheDices()
-    .then((results) => console.log('Resolved!', results))
-    .catch((error) => console.log('Rejected!', error.message));
+async function main() {
+  try {
+    const results = await rollTheDices();
+    console.log('Resolved!', results);
+  } catch (error) {
+    console.log('Rejected!', error.message);
+  }
 }
 
 main();
 
 // ! Do not change or remove the code below
 module.exports = rollTheDices;
+
+/* Explanation:
+All dices roll independently (async) of each other until each settles. The first one to settle, will
+trigger resolve/reject of the promise returned by Promise.race(). Others will continue to roll until they settle.
+However all resolve/reject calls to promise returned by Promise.race() by dices after the first settled one will be ignored as 
+any subsequent calls to resolve/reject are always ignored in promises. */
