@@ -26,9 +26,6 @@ function requestData(url) {
         throw 'HTTP ERROR';
       }
     })
-    .then((jsonData) => {
-      return jsonData;
-    });
 }
 
 function renderImage(data) {
