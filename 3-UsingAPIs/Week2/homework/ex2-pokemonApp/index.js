@@ -67,7 +67,13 @@ async function fetchImage(pokemonName) {
 function main() {
   //Load list with pokemon when clicked
   const getPokemonButton = document.getElementById('getPokemon');
+  const pokemonSelect = document.getElementById('pokemon');
+
   getPokemonButton.onclick = () => {
+    if (pokemonSelect.length) {
+      return;
+    }
+
     const pokemonGeneration = 1;
 
     if (pokemonGeneration) {
@@ -75,7 +81,6 @@ function main() {
     }
   };
 
-  const pokemonSelect = document.getElementById('pokemon');
   pokemonSelect.onchange = () => {
     const pokemonName = pokemonSelect.value;
 
